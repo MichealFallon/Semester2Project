@@ -23,14 +23,14 @@ namespace Semester2Project
         {
             return (word);
         }
-        public string CostDisplay()
+        public List<string> CostDisplay()
         {
-            string costs = "";
+            
             foreach(var x in Cost)
             {
-                costs = ("{0} x {1}", x.Value.ToString(), x.Key.ToString());
+                return ("{0} x {1}", x.Value., x.Key.ToString());
             }
-            return costs;
+            
         }
 
     }
