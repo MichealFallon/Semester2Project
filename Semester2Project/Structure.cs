@@ -23,13 +23,20 @@ namespace Semester2Project
         {
             return (word);
         }
+        
+        //Provides string list of details in dictionary for display
         public List<string> CostDisplay()
         {
-            
+
+            List<string> details = new List<string>();
+
             foreach(var x in Cost)
             {
-                return ("{0} x {1}", x.Value., x.Key.ToString());
+                details.Add(string.Format("{0} x {1}", x.Value.ToString(), x.Key.ToString()));
+                //return ("{0} x {1}", x.Value.ToString(), x.Key.ToString());
             }
+
+            return details;
             
         }
 
