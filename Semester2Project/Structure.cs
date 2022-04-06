@@ -14,23 +14,27 @@ namespace Semester2Project
     {
         public string Name { get; set; }
         public Dictionary<string , int> Cost { get; set; }
-        public string word { get; set; }
         public Structure()
         {
             this.Cost = new Dictionary<string, int>();
         }
         public override string ToString()
         {
-            return (word);
+            return (Name);
         }
         public List<string> CostDisplay()
         {
-            
-            foreach(var x in Cost)
+
+            List<string> details = new List<string>();
+
+            foreach (var x in Cost)
             {
-                return ("{0} x {1}", x.Value., x.Key.ToString());
+                details.Add(string.Format("{0} x {1}", x.Value.ToString(), x.Key.ToString()));
+                //return ("{0} x {1}", x.Value.ToString(), x.Key.ToString());
             }
-            
+
+            return details;
+
         }
 
     }

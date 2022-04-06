@@ -11,22 +11,56 @@
             <TabItem Header="CurrentOrder" Width="100">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40*"/>
                         <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="6*"/>
-                        <RowDefinition Height="6*"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="7*"/>
                         <RowDefinition Height="25*"/>
                         <RowDefinition Height="31*"/>
                         <RowDefinition Height="31*"/>
                     </Grid.RowDefinitions>
-                    <ListBox Name="ListBoxStructures" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="4" SelectionChanged="ListBoxStructures_SelectionChanged"/>
-                    <Button Name="ButtonAddToOrder" Content="Order" Grid.Row="3" Grid.Column="1" Height="50" Width="120"/>
-                    <TextBlock Name="TextBlockCost" Grid.Row="4" Grid.Column="1"/>
-                    <TextBox Name="TextBoxQuantity" Grid.Row="2" Grid.Column="1" Height="20" Width="100" />
-                    <Label Name="LabelQuantity" Content="Quantity"/>
+                    <ListBox Name="ListBoxStructures" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4" SelectionChanged="ListBoxStructures_SelectionChanged"/>
+                    <Button Name="ButtonAddToOrder" Content="Order" Grid.Row="3" Grid.Column="2" Height="50" Width="120" Click="ButtonAddToOrder_Click"/>
+                    
+                    <ListBox Name="ListBoxCost" Grid.Row="5" Grid.Column="2"/>
+                    <Label Name="InsertQuantity" Content="Insert Quantity" Grid.Row="1" Grid.Column="2" Margin="28,0,27,0"/>
+                    <TextBox Name="TextBoxQuantity" Grid.Row="2" Grid.Column="2" Height="20" Width="100" Margin="28,5,29,1"  />
+                    <Label Name="LabelQuantity" Content="Quantity" Grid.Row="0" Grid.Column="0"/>
+                    <ListBox Name="ListBoxOrder" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" />
+                    <ComboBox Name="ComboBoxFilterByMaterial" Grid.Column="0" Grid.Row="5" Height="25" Width="125" SelectionChanged="ComboBoxFilterByMaterial_SelectionChanged">
+                        <ComboBoxItem Content="All"/>
+                        <ComboBoxItem Content="Stone"/>
+                        <ComboBoxItem Content="Wood"/>
+                    </ComboBox>
+                    <ComboBox Name="ComboBoxFilterByStructure" Grid.Column="1" Grid.Row="5" Height="25" Width="125"  SelectionChanged="ComboBoxFilterByStructure_SelectionChanged">
+                        <ComboBoxItem Content="All"/>
+                        <ComboBoxItem Content="Wall"/>
+                        <ComboBoxItem Content="Foundation"/>
+                    </ComboBox>
+
+
+
+                    <ComboBox Name="ComboBoxFilterByMaterialOrder" Grid.Column="3" Grid.Row="5" Height="25" Width="125">
+                        <ComboBoxItem Content="All"/>
+                        <ComboBoxItem Content="Stone"/>
+                        <ComboBoxItem Content="Wood"/>
+                    </ComboBox>
+
+                    <ComboBox Name="ComboBoxFilterByStructureOrder" Grid.Column="4" Grid.Row="5" Height="25" Width="125">
+                        <ComboBoxItem Content="All"/>
+                        <ComboBoxItem Content="Wall"/>
+                        <ComboBoxItem Content="Foundation"/>
+                    </ComboBox>
+
+
+
                 </Grid>
             </TabItem>
             <TabItem Header="PastOrders" Width="100" >
