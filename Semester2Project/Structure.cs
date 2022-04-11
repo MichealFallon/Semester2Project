@@ -22,6 +22,8 @@ namespace Semester2Project
         {
             return (Name);
         }
+        
+        //Provides string list of details in dictionary for display
         public List<string> CostDisplay()
         {
 
