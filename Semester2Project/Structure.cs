@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Semester2Project
 {
-    public class Material
-    {
-        public string Name { get; set; }
-    }
     public class Structure
     {
         public string Name { get; set; }
         public Dictionary<string , int> Cost { get; set; }
+        public List<string> MaterialType { get; set; }
+        public List<int> MaterialAmmount { get; set; }
         public Structure()
         {
+            MaterialType = new List<string>();
+            MaterialAmmount = new List<int>();
             this.Cost = new Dictionary<string, int>();
         }
         public override string ToString()
@@ -28,22 +28,39 @@ namespace Semester2Project
         {
 
             List<string> details = new List<string>();
-
-            foreach (var x in Cost)
+            for (int i = 0; i < MaterialType.Count; i++)
             {
-                details.Add(string.Format("{0} x {1}", x.Value.ToString(), x.Key.ToString()));
-                //return ("{0} x {1}", x.Value.ToString(), x.Key.ToString());
+                details.Add(string.Format("{0} x {1}", MaterialAmmount[i], MaterialType[i]));
             }
 
             return details;
-
         }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //public class StoneWall
     //{
     //    public Dictionary<Material, int> Cost  { get; set; }
-        
+
     //    public StoneWall()
     //    {
     //        this.Cost.Add(new Material() { Name = "Thatch" }, 15);
