@@ -27,24 +27,25 @@
                         <RowDefinition Height="31*"/>
                         <RowDefinition Height="31*"/>
                     </Grid.RowDefinitions>
-                    <ListBox Name="ListBoxStructures" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4" SelectionChanged="ListBoxStructures_SelectionChanged"/>
-                    <Button Name="ButtonAddToOrder" Content="Order" Grid.Row="3" Grid.Column="2" Height="50" Width="120" Click="ButtonAddToOrder_Click"/>
+                    <ListBox Name="ListBoxStructures" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" SelectionChanged="ListBoxStructures_SelectionChanged"/>
+                    <Label Name="LabelQuantity" Content="Stuctures" Grid.Row="0" Grid.Column="0"/>
 
-                    <ListBox Name="ListBoxCost" Grid.Row="5" Grid.Column="2"/>
-                    <Label Name="InsertQuantity" Content="Insert Quantity" Grid.Row="1" Grid.Column="2" Margin="28,0,27,0"/>
-                    <TextBox Name="TextBoxQuantity" Grid.Row="2" Grid.Column="2" Height="20" Width="100" Margin="28,5,29,1"  />
-                    <Label Name="LabelQuantity" Content="Quantity" Grid.Row="0" Grid.Column="0"/>
-                    <ListBox Name="ListBoxOrder" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" />
+                    <ListBox Name="ListBoxOrder" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="5" />
                     <ListBox Name="ListBoxOrderCost" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2"/>
 
-
-
-                    <ComboBox SelectedIndex="0" Name="ComboBoxFilterByMaterial" Grid.Column="0" Grid.Row="5" Height="25" Width="125" SelectionChanged="ComboBoxFilterByMaterial_SelectionChanged">
+                    <Button Name="ButtonAddToOrder" Content="Order" Grid.Row="3" Grid.Column="2" Height="40" Width="120" Click="ButtonAddToOrder_Click"/>
+                    <Label Name="InsertQuantity" Content="Insert Quantity" Grid.Row="1" Grid.Column="2" Margin="28,0,27,0"/>
+                    <TextBox Name="TextBoxQuantity" Grid.Row="2" Grid.Column="2" Height="20" Width="100" Margin="28,5,29,1"  />
+                    
+                    
+                    <ListBox Name="ListBoxCost" Grid.Row="6" Grid.Column="2"/>
+                   
+                    <ComboBox SelectedIndex="0" Name="ComboBoxFilterByMaterial" Grid.Column="0" Grid.Row="6" Height="25" Width="125" SelectionChanged="ComboBoxFilterByMaterial_SelectionChanged">
                         <ComboBoxItem Content="All"/>
                         <ComboBoxItem Content="Stone"/>
                         <ComboBoxItem Content="Metal"/>
                     </ComboBox>
-                    <ComboBox SelectedIndex="0" Name="ComboBoxFilterByStructure" Grid.Column="1" Grid.Row="5" Height="25" Width="125"  SelectionChanged="ComboBoxFilterByStructure_SelectionChanged">
+                    <ComboBox SelectedIndex="0" Name="ComboBoxFilterByStructure" Grid.Column="1" Grid.Row="6" Height="25" Width="125"  SelectionChanged="ComboBoxFilterByStructure_SelectionChanged">
                         <ComboBoxItem Content="All"/>
                         <ComboBoxItem Content="Wall"/>
                         <ComboBoxItem Content="Foundation"/>
@@ -55,36 +56,17 @@
                         <ComboBoxItem Content="Sloped Celings"/>
                         <ComboBoxItem Content="Pilars"/>
                     </ComboBox>
+                    <Label Content="Materials" Grid.Column="0"  HorizontalAlignment="Left" Margin="16,17,0,0" Grid.Row="6" VerticalAlignment="Top"  Width="80"/>
+                    <Label Content="Structures" Grid.Column="1" HorizontalAlignment="Left" Margin="16,17,0,0" Grid.Row="6" VerticalAlignment="Top" Width="80"/>
 
-
-
-
-                    <ComboBox SelectedIndex="0" Name="ComboBoxFilterByMaterialOrder" Grid.Column="3" Grid.Row="5" Height="25" Width="125">
-                        <ComboBoxItem Content="All"/>
-                        <ComboBoxItem Content="Stone"/>
-                        <ComboBoxItem Content="Wood"/>
-                    </ComboBox>
-                    <ComboBox SelectedIndex="0" Name="ComboBoxFilterByStructureOrder" Grid.Column="4" Grid.Row="5" Height="25" Width="125">
-                        <ComboBoxItem Content="All"/>
-                        <ComboBoxItem Content="Wall"/>
-                        <ComboBoxItem Content="Foundation"/>
-                    </ComboBox>
-                    <Label Content="Materials" Grid.Column="0" HorizontalAlignment="Left" Margin="16,17,0,0" Grid.Row="5" VerticalAlignment="Top"  Width="80"/>
-                    <Label Content="Structures" Grid.Column="1" HorizontalAlignment="Left" Margin="16,17,0,0" Grid.Row="5" VerticalAlignment="Top" Width="80"/>
-                    <Label Content="Materials" Grid.Column="3" HorizontalAlignment="Left" Margin="16,17,0,0" Grid.Row="5" VerticalAlignment="Top" Width="80"/>
-                    <Label Content="Structures" Grid.Column="4" HorizontalAlignment="Left" Margin="16,17,0,0" Grid.Row="5" VerticalAlignment="Top"  Width="80"/>
-
-
-
-
-
-
+                    <Button Name="ButtonAddToDatabase" Content="Save Order" Grid.Row="5" Grid.Column="2" Height="40" Width="120"/>
 
                 </Grid>
             </TabItem>
             <TabItem Header="PastOrders" Width="100" >
 
             </TabItem>
+            
         </TabControl>
     </Grid>
 </Window>

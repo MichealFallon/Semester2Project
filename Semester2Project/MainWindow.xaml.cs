@@ -63,6 +63,8 @@ namespace Semester2Project
             //Polymer
             OrderCost.Add(0);
             #endregion
+
+            #region Stone Structures
             #region StoneWall
             Structure stoneWall = new Structure() { Name = "Stone Wall" };
             stoneWall.MaterialType.Add("Stone");
@@ -129,9 +131,9 @@ namespace Semester2Project
             stonePilar.MaterialType.Add("Wood");
             stonePilar.MaterialType.Add("Thatch");
 
-            stonePilar.MaterialAmmount.Add(90);
-            stonePilar.MaterialAmmount.Add(45);
             stonePilar.MaterialAmmount.Add(30);
+            stonePilar.MaterialAmmount.Add(15);
+            stonePilar.MaterialAmmount.Add(10);
 
             AllStructures.Add(stonePilar);
             StoneStructures.Add(stonePilar);
@@ -228,7 +230,155 @@ namespace Semester2Project
             StoneStructures.Add(stoneSlopedCeling);
             SlopedCelings.Add(stoneSlopedCeling);
             #endregion
+            #endregion
 
+            #region Metal Structures
+            #region Metal Wall
+            Structure metalWall = new Structure() { Name = "Metal Wall" };
+            metalWall.MaterialType.Add("Metal");
+            metalWall.MaterialType.Add("CementingPaste");
+            
+            metalWall.MaterialAmmount.Add(25);
+            metalWall.MaterialAmmount.Add(7);
+           
+
+            AllStructures.Add(metalWall);
+            MetalStructures.Add(metalWall);
+            Walls.Add(metalWall);
+            #endregion
+
+            #region Metal Foundation
+            Structure metalFoundation = new Structure() { Name = "Metal Foundation" };
+            metalFoundation.MaterialType.Add("Metal");
+            metalFoundation.MaterialType.Add("CementingPaste");
+            
+            metalFoundation.MaterialAmmount.Add(50);
+            metalFoundation.MaterialAmmount.Add(15);
+            
+
+            AllStructures.Add(metalFoundation);
+            MetalStructures.Add(metalFoundation);
+            Foundations.Add(metalFoundation);
+            #endregion
+
+            #region Metal Door Frame
+            Structure metalDoorFrame = new Structure() { Name = "Metal Door Frame" };
+            metalDoorFrame.MaterialType.Add("Metal");
+            metalDoorFrame.MaterialType.Add("CementingPaste");
+
+            metalDoorFrame.MaterialAmmount.Add(20);
+            metalDoorFrame.MaterialAmmount.Add(6);
+
+            AllStructures.Add(metalDoorFrame);
+            MetalStructures.Add(metalDoorFrame);
+            DoorFrames.Add(metalDoorFrame);
+            #endregion
+
+            #region Metal Door
+            Structure metalDoor = new Structure() { Name = "Metal Door" };
+            metalDoor.MaterialType.Add("Metal");
+            metalDoor.MaterialType.Add("CementingPaste");
+
+            metalDoor.MaterialAmmount.Add(10);
+            metalDoor.MaterialAmmount.Add(4);
+
+            AllStructures.Add(metalDoor);
+            MetalStructures.Add(metalDoor);
+            Doors.Add(metalDoor);
+            #endregion
+
+            #region Metal Pilar
+            Structure metalPilar = new Structure() { Name = "Metal Pilar" };
+            metalPilar.MaterialType.Add("Metal");
+            metalPilar.MaterialType.Add("CementingPaste");
+
+            metalPilar.MaterialAmmount.Add(25);
+            metalPilar.MaterialAmmount.Add(7);
+
+            AllStructures.Add(metalPilar);
+            MetalStructures.Add(metalPilar);
+            Pilars.Add(metalPilar);
+            #endregion
+
+            #region Metal Celing
+            Structure metalCeling = new Structure() { Name = "Metal Celing" };
+            metalCeling.MaterialType.Add("Metal");
+            metalCeling.MaterialType.Add("CementingPaste");
+
+            metalCeling.MaterialAmmount.Add(45);
+            metalCeling.MaterialAmmount.Add(10);
+
+            AllStructures.Add(metalCeling);
+            MetalStructures.Add(metalCeling);
+            Celings.Add(metalCeling);
+            #endregion
+
+            #region Metal Double Door Frame
+            Structure metalDoubleDoorFrame = new Structure() { Name = "Metal Double Door Frame" };
+            metalDoubleDoorFrame.MaterialType.Add("Metal");
+            metalDoubleDoorFrame.MaterialType.Add("CementingPaste");
+
+            metalDoubleDoorFrame.MaterialAmmount.Add(20);
+            metalDoubleDoorFrame.MaterialAmmount.Add(6);
+
+            AllStructures.Add(metalDoubleDoorFrame);
+            MetalStructures.Add(metalDoubleDoorFrame);
+            DoorFrames.Add(metalDoubleDoorFrame);
+            #endregion
+
+            #region Metal Double  Door
+            Structure metalDoubleDoor = new Structure() { Name = "Metal Double Door" };
+            metalDoubleDoor.MaterialType.Add("Metal");
+            metalDoubleDoor.MaterialType.Add("CementingPaste");
+
+            metalDoubleDoor.MaterialAmmount.Add(20);
+            metalDoubleDoor.MaterialAmmount.Add(8);
+
+            AllStructures.Add(metalDoubleDoorFrame);
+            MetalStructures.Add(metalDoubleDoorFrame);
+            Doors.Add(metalDoubleDoor);
+            #endregion
+
+            #region Metal Sloped Wall Left
+            Structure metalSlopedWallL = new Structure() { Name = "Metal Sloped Wall Left" };
+            metalSlopedWallL.MaterialType.Add("Metal");
+            metalSlopedWallL.MaterialType.Add("CementingPaste");
+
+            metalSlopedWallL.MaterialAmmount.Add(15);
+            metalSlopedWallL.MaterialAmmount.Add(5);
+
+            AllStructures.Add(metalSlopedWallL);
+            MetalStructures.Add(metalSlopedWallL);
+            SlopedWalls.Add(metalSlopedWallL);
+            #endregion
+
+            #region StoneSlopedWallRight
+            Structure metalSlopedWallR = new Structure() { Name = "Metal Sloped Wall Right" };
+            metalSlopedWallR.MaterialType.Add("Metal");
+            metalSlopedWallR.MaterialType.Add("CementingPaste");
+
+            metalSlopedWallR.MaterialAmmount.Add(15);
+            metalSlopedWallR.MaterialAmmount.Add(5);
+
+            AllStructures.Add(metalSlopedWallR);
+            MetalStructures.Add(metalSlopedWallR);
+            SlopedWalls.Add(metalSlopedWallR);
+
+            #endregion
+
+            #region StoneSlopedCeling
+            Structure metalSlopedCeling = new Structure() { Name = "Metal Sloped Celing" };
+            metalSlopedCeling.MaterialType.Add("Metal");
+            metalSlopedCeling.MaterialType.Add("CementingPaste");
+
+            metalSlopedCeling.MaterialAmmount.Add(35);
+            metalSlopedCeling.MaterialAmmount.Add(10);
+
+            AllStructures.Add(metalSlopedCeling);
+            MetalStructures.Add(metalSlopedCeling);
+            SlopedCelings.Add(metalSlopedCeling);
+            #endregion
+            #endregion
 
 
 
@@ -342,6 +492,31 @@ namespace Semester2Project
                     ListBoxStructures.ItemsSource = null;
                     ListBoxStructures.ItemsSource = Foundations;
                     break;
+                case 3:
+                    ListBoxStructures.ItemsSource = null;
+                    ListBoxStructures.ItemsSource = Doors;
+                    break;
+                case 4:
+                    ListBoxStructures.ItemsSource = null;
+                    ListBoxStructures.ItemsSource = DoorFrames;
+                    break;
+                case 5:
+                    ListBoxStructures.ItemsSource = null;
+                    ListBoxStructures.ItemsSource = Celings;
+                    break;
+                case 6:
+                    ListBoxStructures.ItemsSource = null;
+                    ListBoxStructures.ItemsSource = SlopedWalls;
+                    break;
+                case 7:
+                    ListBoxStructures.ItemsSource = null;
+                    ListBoxStructures.ItemsSource = SlopedCelings;
+                    break;
+                case 8:
+                    ListBoxStructures.ItemsSource = null;
+                    ListBoxStructures.ItemsSource = Pilars;
+                    break;
+
             }
         }
     }

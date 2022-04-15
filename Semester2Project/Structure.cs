@@ -9,14 +9,13 @@ namespace Semester2Project
     public class Structure
     {
         public string Name { get; set; }
-        public Dictionary<string , int> Cost { get; set; }
         public List<string> MaterialType { get; set; }
         public List<int> MaterialAmmount { get; set; }
         public Structure()
         {
             MaterialType = new List<string>();
             MaterialAmmount = new List<int>();
-            this.Cost = new Dictionary<string, int>();
+            
         }
         public override string ToString()
         {
