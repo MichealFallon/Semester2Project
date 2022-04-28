@@ -26,6 +26,7 @@ namespace Semester2Project
         #region Material Lists
         List<Structure> StoneStructures = new List<Structure>();
         List<Structure> MetalStructures = new List<Structure>();
+        List<Structure> TekStructures = new List<Structure>();
         List<String> OrderedStructures = new List<String>();
         #endregion
         #region Structure Type Lists
@@ -180,8 +181,8 @@ namespace Semester2Project
             stoneDoubleDoor.MaterialAmmount.Add(28);
             stoneDoubleDoor.MaterialAmmount.Add(16);
 
-            AllStructures.Add(stoneDoubleDoorFrame);
-            StoneStructures.Add(stoneDoubleDoorFrame);
+            AllStructures.Add(stoneDoubleDoor);
+            StoneStructures.Add(stoneDoubleDoor);
             Doors.Add(stoneDoubleDoor);
             #endregion
 
@@ -334,8 +335,8 @@ namespace Semester2Project
             metalDoubleDoor.MaterialAmmount.Add(20);
             metalDoubleDoor.MaterialAmmount.Add(8);
 
-            AllStructures.Add(metalDoubleDoorFrame);
-            MetalStructures.Add(metalDoubleDoorFrame);
+            AllStructures.Add(metalDoubleDoor);
+            MetalStructures.Add(metalDoubleDoor);
             Doors.Add(metalDoubleDoor);
             #endregion
 
@@ -352,7 +353,7 @@ namespace Semester2Project
             SlopedWalls.Add(metalSlopedWallL);
             #endregion
 
-            #region StoneSlopedWallRight
+            #region Metal Sloped Wall Right
             Structure metalSlopedWallR = new Structure() { Name = "Metal Sloped Wall Right" };
             metalSlopedWallR.MaterialType.Add("Metal");
             metalSlopedWallR.MaterialType.Add("CementingPaste");
@@ -366,7 +367,7 @@ namespace Semester2Project
 
             #endregion
 
-            #region StoneSlopedCeling
+            #region Metal Sloped Celing
             Structure metalSlopedCeling = new Structure() { Name = "Metal Sloped Celing" };
             metalSlopedCeling.MaterialType.Add("Metal");
             metalSlopedCeling.MaterialType.Add("CementingPaste");
@@ -377,6 +378,164 @@ namespace Semester2Project
             AllStructures.Add(metalSlopedCeling);
             MetalStructures.Add(metalSlopedCeling);
             SlopedCelings.Add(metalSlopedCeling);
+            #endregion
+            #endregion
+
+            #region Tek Structures
+            #region Tek Wall
+            Structure tekWall = new Structure() { Name = "Tek Wall" };
+            tekWall.MaterialType.Add("Metal");
+            tekWall.MaterialType.Add("Polymer");
+            tekWall.MaterialType.Add("Crystal");
+
+            tekWall.MaterialAmmount.Add(35);
+            tekWall.MaterialAmmount.Add(20);
+            tekWall.MaterialAmmount.Add(15);
+
+            AllStructures.Add(tekWall);
+            TekStructures.Add(tekWall);
+            Walls.Add(tekWall);
+            #endregion
+
+            #region Tek Foundation
+            Structure tekFoundation = new Structure() { Name = "Tek Foundation" };
+            tekFoundation.MaterialType.Add("Metal");
+            tekFoundation.MaterialType.Add("Polymer");
+            tekFoundation.MaterialType.Add("Crystal");
+
+            tekFoundation.MaterialAmmount.Add(100);
+            tekFoundation.MaterialAmmount.Add(45);
+            tekFoundation.MaterialAmmount.Add(20);
+
+
+            AllStructures.Add(tekFoundation);
+            TekStructures.Add(tekFoundation);
+            Foundations.Add(tekFoundation);
+            #endregion
+
+            #region Tek Door Frame
+            Structure tekDoorFrame = new Structure() { Name = "Tek Door Frame" };
+            tekDoorFrame.MaterialType.Add("Metal");
+            tekDoorFrame.MaterialType.Add("Polymer");
+            tekDoorFrame.MaterialType.Add("Crystal");
+
+            tekDoorFrame.MaterialAmmount.Add(30);
+            tekDoorFrame.MaterialAmmount.Add(15);
+            tekDoorFrame.MaterialAmmount.Add(5);
+
+            AllStructures.Add(tekDoorFrame);
+            TekStructures.Add(tekDoorFrame);
+            DoorFrames.Add(tekDoorFrame);
+            #endregion
+
+            #region Tek Door
+            Structure tekDoor = new Structure() { Name = "Tek Door" };
+            tekDoor.MaterialType.Add("Polymer");
+            tekDoor.MaterialType.Add("Crystal");
+
+            tekDoor.MaterialAmmount.Add(40);
+            tekDoor.MaterialAmmount.Add(60);
+
+            AllStructures.Add(tekDoor);
+            TekStructures.Add(tekDoor);
+            Doors.Add(tekDoor);
+            #endregion
+
+            #region Tek Pilar
+            Structure tekPilar = new Structure() { Name = "Tek Pilar" };
+            tekDoor.MaterialType.Add("Metal");
+            tekDoor.MaterialType.Add("Polymer");
+            tekDoor.MaterialType.Add("Crystal");
+
+            tekDoor.MaterialAmmount.Add(60);
+            tekDoor.MaterialAmmount.Add(14);
+            tekDoor.MaterialAmmount.Add(10);
+
+            AllStructures.Add(tekPilar);
+            TekStructures.Add(tekPilar);
+            Pilars.Add(tekPilar);
+            #endregion
+
+            #region Tek Celing
+            Structure tekCeling = new Structure() { Name = "Tek Celing" };
+            tekDoor.MaterialType.Add("Metal");
+            tekDoor.MaterialType.Add("Polymer");
+            tekDoor.MaterialType.Add("Crystal");
+
+            tekDoor.MaterialAmmount.Add(50);
+            tekDoor.MaterialAmmount.Add(25);
+            tekDoor.MaterialAmmount.Add(20);
+
+            AllStructures.Add(tekCeling);
+            TekStructures.Add(tekCeling);
+            Celings.Add(tekCeling);
+            #endregion
+
+            #region Tek Double Door Frame
+            Structure tekDoubleDoorFrame = new Structure() { Name = "Tek Double Door Frame" };
+            tekDoor.MaterialType.Add("Metal");
+            tekDoor.MaterialType.Add("Polymer");
+            tekDoor.MaterialType.Add("Crystal");
+
+            tekDoor.MaterialAmmount.Add(30);
+            tekDoor.MaterialAmmount.Add(15);
+            tekDoor.MaterialAmmount.Add(5);
+
+            AllStructures.Add(tekDoubleDoorFrame);
+            TekStructures.Add(tekDoubleDoorFrame);
+            DoorFrames.Add(tekDoubleDoorFrame);
+            #endregion
+
+            #region Tek Double  Door
+            Structure tekDoubleDoor = new Structure() { Name = "Tek Double Door" };
+            tekDoor.MaterialType.Add("Polymer");
+            tekDoor.MaterialType.Add("Crystal");
+
+            tekDoor.MaterialAmmount.Add(80);
+            tekDoor.MaterialAmmount.Add(120);
+
+            AllStructures.Add(tekDoubleDoor);
+            TekStructures.Add(tekDoubleDoor);
+            Doors.Add(tekDoubleDoor);
+            #endregion
+
+            #region Tek Sloped Wall Left
+            Structure tekSlopedWallL = new Structure() { Name = "Tek Sloped Wall Left" };
+            tekSlopedWallL.MaterialType.Add("Metal");
+            tekSlopedWallL.MaterialType.Add("CementingPaste");
+
+            tekSlopedWallL.MaterialAmmount.Add(15);
+            tekSlopedWallL.MaterialAmmount.Add(5);
+
+            AllStructures.Add(tekSlopedWallL);
+            MetalStructures.Add(tekSlopedWallL);
+            SlopedWalls.Add(tekSlopedWallL);
+            #endregion
+
+            #region Tek Sloped Wall Right
+            Structure tekSlopedWallR = new Structure() { Name = "Tek Sloped Wall Right" };
+            metalSlopedWallR.MaterialType.Add("Metal");
+            metalSlopedWallR.MaterialType.Add("CementingPaste");
+
+            metalSlopedWallR.MaterialAmmount.Add(15);
+            metalSlopedWallR.MaterialAmmount.Add(5);
+
+            AllStructures.Add(tekSlopedWallR);
+            TekStructures.Add(tekSlopedWallR);
+            SlopedWalls.Add(tekSlopedWallR);
+            #endregion
+
+            #region Tek Sloped Celing
+            Structure tekSlopedCeling = new Structure() { Name = "Tek Sloped Celing" };
+            tekSlopedCeling.MaterialType.Add("Metal");
+            tekSlopedCeling.MaterialType.Add("CementingPaste");
+
+            tekSlopedCeling.MaterialAmmount.Add(35);
+            tekSlopedCeling.MaterialAmmount.Add(10);
+
+            AllStructures.Add(tekSlopedCeling);
+            TekStructures.Add(tekSlopedCeling);
+            SlopedCelings.Add(tekSlopedCeling);
             #endregion
             #endregion
 
@@ -470,6 +629,10 @@ namespace Semester2Project
                 case 2:
                     ListBoxStructures.ItemsSource = null;
                     ListBoxStructures.ItemsSource = MetalStructures;
+                    break;
+                case 3:
+                    ListBoxStructures.ItemsSource = null;
+                    ListBoxStructures.ItemsSource = TekStructures;
                     break;
             }
         }

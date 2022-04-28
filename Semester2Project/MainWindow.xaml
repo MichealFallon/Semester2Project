@@ -44,6 +44,7 @@
                         <ComboBoxItem Content="All"/>
                         <ComboBoxItem Content="Stone"/>
                         <ComboBoxItem Content="Metal"/>
+                        <ComboBoxItem Content="Tek"/>
                     </ComboBox>
                     <ComboBox SelectedIndex="0" Name="ComboBoxFilterByStructure" Grid.Column="1" Grid.Row="6" Height="25" Width="125"  SelectionChanged="ComboBoxFilterByStructure_SelectionChanged">
                         <ComboBoxItem Content="All"/>
