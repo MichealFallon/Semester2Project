@@ -40,7 +40,7 @@ namespace Semester2Project
         List<Structure> Pilars = new List<Structure>();
         #endregion
 
-
+        Model1Container db = new Model1Container();
         public MainWindow()
         {
             InitializeComponent();
@@ -545,7 +545,18 @@ namespace Semester2Project
 
             ListBoxOrderCost.ItemsSource = null;
             ListBoxOrderCost.ItemsSource = OrderCostDisplay;
-            ListBoxStructures.ItemsSource = AllStructures;            
+            ListBoxStructures.ItemsSource = AllStructures;
+            OrdersData db = new OrdersData();
+            using (db)
+            {
+                Orders o1 = new Orders() { OrdersID = 1, OrdersName = "test" };
+                OrdersCost oc1 = new OrdersCost() { Stone = OrderCost[0], Wood = OrderCost[1], Thatch = OrderCost[2], Metal = OrderCost[3], CementingPaste = OrderCost[4], Cryatal = OrderCost[5], Polymer = OrderCost[6], OrdersID = 1, Orders = o1 };
+                OrdersDetails od1 = new OrdersDetails() { Item = "1 x Stone Wall",OrdersID = 1, Orders =  o1 };
+                db.Orders.Add(o1);
+                db.OrdersCost.Add(oc1);
+                db.OrdersDetails.Add(od1);
+                db.SaveChanges();
+            }
         }
 
         private void ListBoxStructures_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -681,6 +692,11 @@ namespace Semester2Project
                     break;
 
             }
+        }
+
+        private void ButtonAddToDatabase_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

@@ -4,22 +4,86 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="Model1TargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="Orders" EntityType="Model1.Store.Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderDetails" EntityType="Model1.Store.OrderDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderCosts" EntityType="Model1.Store.OrderCosts" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="OrderOrderDetails" Association="Model1.Store.OrderOrderDetails">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="OrderOrderCost" Association="Model1.Store.OrderOrderCost">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderCost" EntitySet="OrderCosts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="StructureName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Quantity" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderCosts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Stone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Wood" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Thatch" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Metal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CementingPaste" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Crystal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Polymer" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="OrderOrderDetails">
+    <End Role="Order" Type="Model1.Store.Orders" Multiplicity="1" />
+    <End Role="OrderDetails" Type="Model1.Store.OrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderOrderCost">
+    <End Role="Order" Type="Model1.Store.Orders" Multiplicity="1" />
+    <End Role="OrderCost" Type="Model1.Store.OrderCosts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderCost">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Orders" EntityType="Model1.Order" />
           <EntitySet Name="OrderDetails" EntityType="Model1.OrderDetails" />
+          <EntitySet Name="OrderCosts" EntityType="Model1.OrderCost" />
           <AssociationSet Name="OrderOrderDetails" Association="Model1.OrderOrderDetails">
             <End Role="Order" EntitySet="Orders" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
-          <EntitySet Name="OrderCosts" EntityType="Model1.OrderCost" />
           <AssociationSet Name="OrderOrderCost" Association="Model1.OrderOrderCost">
             <End Role="Order" EntitySet="Orders" />
             <End Role="OrderCost" EntitySet="OrderCosts" />
@@ -32,6 +96,7 @@
           <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
           <NavigationProperty Name="OrderDetails" Relationship="Model1.OrderOrderDetails" FromRole="Order" ToRole="OrderDetails" />
           <NavigationProperty Name="OrderCosts" Relationship="Model1.OrderOrderCost" FromRole="Order" ToRole="OrderCost" />
+          <Property Name="Name" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderDetails">
           <Key>
@@ -39,6 +104,23 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Order" Relationship="Model1.OrderOrderDetails" FromRole="OrderDetails" ToRole="Order" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="StructureName" Type="String" Nullable="false" />
+          <Property Name="Quantity" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderCost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Stone" Type="String" Nullable="false" />
+          <Property Name="Wood" Type="String" Nullable="false" />
+          <Property Name="Thatch" Type="String" Nullable="false" />
+          <Property Name="Metal" Type="String" Nullable="false" />
+          <Property Name="CementingPaste" Type="String" Nullable="false" />
+          <Property Name="Crystal" Type="String" Nullable="false" />
+          <Property Name="Polymer" Type="String" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Model1.OrderOrderCost" FromRole="OrderCost" ToRole="Order" />
           <Property Name="OrderId" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="OrderOrderDetails">
@@ -53,31 +135,59 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="OrderCost">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Order" Relationship="Model1.OrderOrderCost" FromRole="OrderCost" ToRole="Order" />
-          <Property Name="Stone" Type="String" Nullable="false" />
-          <Property Name="Wood" Type="String" Nullable="false" />
-          <Property Name="Thatch" Type="String" Nullable="false" />
-        </EntityType>
         <Association Name="OrderOrderCost">
           <End Type="Model1.Order" Role="Order" Multiplicity="1" />
           <End Type="Model1.OrderCost" Role="OrderCost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderCost">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="Model1" />
-        <Alias Key="Target" Value="Model1.Store" />
-        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Order)">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.OrderDetails)">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="StructureName" ColumnName="StructureName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderCosts">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.OrderCost)">
+        <MappingFragment StoreEntitySet="OrderCosts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Stone" ColumnName="Stone" />
+          <ScalarProperty Name="Wood" ColumnName="Wood" />
+          <ScalarProperty Name="Thatch" ColumnName="Thatch" />
+          <ScalarProperty Name="Metal" ColumnName="Metal" />
+          <ScalarProperty Name="CementingPaste" ColumnName="CementingPaste" />
+          <ScalarProperty Name="Crystal" ColumnName="Crystal" />
+          <ScalarProperty Name="Polymer" ColumnName="Polymer" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -91,6 +201,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

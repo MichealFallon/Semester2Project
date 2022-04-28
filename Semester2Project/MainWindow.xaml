@@ -60,7 +60,7 @@
                     <Label Content="Materials" Grid.Column="0"  HorizontalAlignment="Left" Margin="16,17,0,0" Grid.Row="6" VerticalAlignment="Top"  Width="80"/>
                     <Label Content="Structures" Grid.Column="1" HorizontalAlignment="Left" Margin="16,17,0,0" Grid.Row="6" VerticalAlignment="Top" Width="80"/>
 
-                    <Button Name="ButtonAddToDatabase" Content="Save Order" Grid.Row="5" Grid.Column="2" Height="40" Width="120"/>
+                    <Button Name="ButtonAddToDatabase" Content="Save Order" Grid.Row="5" Grid.Column="2" Height="40" Width="120" Click="ButtonAddToDatabase_Click"/>
 
                 </Grid>
             </TabItem>
